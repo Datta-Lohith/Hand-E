@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="hand_e" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <!-- Colors -->
+  <xacro:macro name="body_color">
+    <visual>
+    <material>
+        <ambient>0.792156862745098 0.819607843137255 0.933333333333333 1</ambient>
+        <diffuse>0.8 0.558823529411765 0.1 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="wheel_color">
+    <visual>
+    <material>
+        <ambient>0 0 0 1</ambient>
+        <diffuse>0 0 0 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="arm_color">
+    <visual>
+    <material>
+        <ambient>0.0 0 0.929411764705882 1</ambient>
+        <diffuse>0 0 0 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="gripper_color">
+    <visual>
+    <material>
+        <ambient>0 1 0 1</ambient>
+        <diffuse>0 0 0 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  <!-- Colors -->
+
+  <link name="dummy_link"></link>
+  <joint name="dummy_to_base_link=" type="fixed">  
+    <parent link="dummy_link"/>  
+     <child link="base_link"/>  
+  </joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="5.80276310836428E-05 -6.11295497276811E-05 -0.0648336848302014"
+        rpy="0 0 0" />
+      <mass
+        value="52.6386459244813" />
+      <inertia
+        ixx="2.60615907779186"
+        ixy="-1.86719960169964E-07"
+        ixz="-4.07373488104584E-06"
+        iyy="1.80507200469152"
+        iyz="4.29150001997116E-06"
+        izz="4.2630437084624" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="front_left">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-17 5.55111512312578E-17 5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.57407399381529" />
+      <inertia
+        ixx="0.00947976967355967"
+        ixy="-2.00803277362391E-19"
+        ixz="5.87902952597009E-20"
+        iyy="0.00947976967355967"
+        iyz="7.00422786249909E-19"
+        izz="0.0120399994394116" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/front_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/front_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_joint"
+    type="continuous">
+    <origin
+      xyz="0.380999999999999 -0.203121668505498 -0.0635000000000014"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      friction="2" />
+    <description>leftJoint</description>
+  </joint>
+  <link
+    name="rear_left">
+    <inertial>
+      <origin
+        xyz="0 -2.77555756156289E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="2.57407399381529" />
+      <inertia
+        ixx="0.00947976967355967"
+        ixy="7.28360102040024E-22"
+        ixz="2.59581749825336E-22"
+        iyy="0.00947976967355967"
+        iyz="-6.2335073044409E-20"
+        izz="0.0120399994394116" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/rear_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/rear_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_left_joint"
+    type="continuous">
+    <origin
+      xyz="0.380999999999999 0.203308839419647 -0.0635"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rear_left" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      friction="2" />
+  </joint>
+  <link
+    name="front_right">
+    <inertial>
+      <origin
+        xyz="0 0 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.57407399381529" />
+      <inertia
+        ixx="0.00947976967355968"
+        ixy="2.83276051993413E-19"
+        ixz="1.42649221499535E-32"
+        iyy="0.00947976967355968"
+        iyz="-4.00872542516456E-32"
+        izz="0.0120399994394116" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/front_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/front_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.381 -0.203121668505497 -0.0635"
+      rpy="3.14159265358979 -1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_right" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics
+      friction="2" />
+    <description>rightJoint</description>
+  </joint>
+  <link
+    name="rear_right">
+    <inertial>
+      <origin
+        xyz="0 2.77555756156289E-17 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.57407399381529" />
+      <inertia
+        ixx="0.00947976967355968"
+        ixy="3.33476871334018E-19"
+        ixz="3.06486896423945E-32"
+        iyy="0.00947976967355968"
+        iyz="-3.21321069290309E-32"
+        izz="0.0120399994394116" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/rear_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/rear_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.381 0.203308839419645 -0.0635"
+      rpy="3.14159265358979 -1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rear_right" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      friction="2" />
+  </joint>
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="0.000468809221648677 7.22487927756407E-06 0.0184342922644863"
+        rpy="0 0 0" />
+      <mass
+        value="0.723083511474943" />
+      <inertia
+        ixx="0.00116917959377857"
+        ixy="-3.75879736012242E-08"
+        ixz="-3.04764040502731E-07"
+        iyy="0.00119721400625644"
+        iyz="8.31308767977868E-08"
+        izz="0.00219015492157671" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_joint"
+    type="fixed">
+    <origin
+      xyz="-0.00595281220058339 0.0110605867213414 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="base_connect">
+    <inertial>
+      <origin
+        xyz="-0.0116180919174927 1.38467447423872E-06 0.116489279970554"
+        rpy="0 0 0" />
+      <mass
+        value="0.313514079524471" />
+      <inertia
+        ixx="0.00109341088249656"
+        ixy="9.00039257151338E-08"
+        ixz="8.76480121568793E-05"
+        iyy="0.00117090750291461"
+        iyz="6.76857903934236E-09"
+        izz="0.00103229346928198" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/base_connect.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/base_connect.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_connect_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="base_connect" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="arm1_lower">
+    <inertial>
+      <origin
+        xyz="-0.25096150116301 2.50635946441938E-06 0.0841410933131611"
+        rpy="0 0 0" />
+      <mass
+        value="0.887819204634431" />
+      <inertia
+        ixx="0.002059497821703"
+        ixy="2.40499771631106E-06"
+        ixz="0.000425170003573277"
+        iyy="0.0463631650483672"
+        iyz="-3.14589506399883E-07"
+        izz="0.0461700726342757" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/arm1_lower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/arm1_lower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1_lower_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0861999999999996 0 0.128"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="base_connect" />
+    <child
+      link="arm1_lower" />
+    <axis
+      xyz="0 0 -1" />
+    <!-- <limit
+      lower="-1.57"
+      upper="1.57"/> -->
+  </joint>
+  <link
+    name="arm2_lower">
+    <inertial>
+      <origin
+        xyz="0.256850693950992 -3.24959102954159E-06 0.00322491337902426"
+        rpy="0 0 0" />
+      <mass
+        value="0.473747284195782" />
+      <inertia
+        ixx="0.000614889071011718"
+        ixy="-2.90846533367841E-07"
+        ixz="-9.68472196964982E-06"
+        iyy="0.020329998137372"
+        iyz="-5.61384249943774E-08"
+        izz="0.0202932042063235" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/arm2_lower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/arm2_lower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2_lower_joint"
+    type="continuous">
+    <origin
+      xyz="-0.6129 0 -0.0380092894600003"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="arm1_lower" />
+    <child
+      link="arm2_lower" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="arm2_upper">
+    <inertial>
+      <origin
+        xyz="-0.00970308828175481 -8.57851149071477E-06 0.0466151734317388"
+        rpy="0 0 0" />
+      <mass
+        value="0.0742764446430328" />
+      <inertia
+        ixx="9.01020498619509E-05"
+        ixy="5.0021545575801E-09"
+        ixz="9.24585413820232E-06"
+        iyy="0.000113727147236287"
+        iyz="-1.31115213645778E-08"
+        izz="0.000105196921793077" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/arm2_upper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/arm2_upper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2_upper_joint"
+    type="continuous">
+    <origin
+      xyz="0.571600428429073 0 0.0615000000000024"
+      rpy="0 0 -3.14159265358979" />
+    <parent
+      link="arm2_lower" />
+    <child
+      link="arm2_upper" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="vaccum_base">
+    <inertial>
+      <origin
+        xyz="-0.00970309094636546 -8.59057528028451E-06 0.0464151792948282"
+        rpy="0 0 0" />
+      <mass
+        value="0.0742764203687969" />
+      <inertia
+        ixx="9.01020139421992E-05"
+        ixy="5.01424741512049E-09"
+        ixz="9.24584614646745E-06"
+        iyy="0.000113727142465638"
+        iyz="-1.312749073982E-08"
+        izz="0.000105196889441442" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/vaccum_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/vaccum_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="vaccum_base_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0617000000000023 0 0.0541999999999999"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="arm2_upper" />
+    <child
+      link="vaccum_base" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="gripper">
+    <inertial>
+      <origin
+        xyz="-0.0847516575364416 0.000313181833712036 -0.000630023335160601"
+        rpy="0 0 0" />
+      <mass
+        value="0.0268694084591444" />
+      <inertia
+        ixx="2.31730256637713E-05"
+        ixy="-4.68378057497354E-08"
+        ixz="-5.25186102354395E-08"
+        iyy="1.26795760179578E-05"
+        iyz="-8.0917605727407E-09"
+        izz="1.371781905329E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/vaccum_base_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/vaccum_base_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.054"
+      rpy="0 0 0" />
+    <parent
+      link="vaccum_base" />
+    <child
+      link="gripper" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+    lower="-3.14"
+    upper="3.14"
+    effort="1000"
+    velocity="1000" />
+  </joint>
+  <link
+    name="camera">
+    <inertial>
+      <origin
+        xyz="1.94289029309402E-16 4.63171168085807E-15 0.003447418640663"
+        rpy="0 0 0" />
+      <mass
+        value="0.00265523655302715" />
+      <inertia
+        ixx="1.41037231479302E-07"
+        ixy="-8.57519229309676E-25"
+        ixz="2.702730134894E-22"
+        iyy="1.41037231479302E-07"
+        iyz="-2.32326860696384E-22"
+        izz="5.96790818794165E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hand_e/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_joint"
+    type="revolute">
+    <origin
+      xyz="-0.078050000000011 0 0.0536999999999996"
+      rpy="0 0 0" />
+    <parent
+      link="gripper" />
+    <child
+      link="camera" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+    lower="-3.14"
+    upper="3.14"
+    effort="1000"
+    velocity="1000" />
+  </joint>
+
+  <!-- Assigning Colors -->
+
+  <gazebo reference="base_link">
+      <xacro:body_color />
+  </gazebo>
+  <gazebo reference="base">
+      <xacro:body_color />
+  </gazebo>
+  <gazebo reference="base_connect">
+      <xacro:body_color />
+  </gazebo>
+  <gazebo reference="front_right">
+      <xacro:wheel_color />
+  </gazebo>
+  <gazebo reference="front_left">
+      <xacro:wheel_color />
+  </gazebo>
+  <gazebo reference="rear_left">
+      <xacro:wheel_color />
+  </gazebo>
+  <gazebo reference="rear_right">
+      <xacro:wheel_color />
+  </gazebo>
+  <gazebo reference="arm1_lower">
+      <xacro:arm_color />
+  </gazebo>  
+  <gazebo reference="arm2_lower">
+      <xacro:arm_color />
+  </gazebo>
+  <gazebo reference="arm2_upper">
+      <xacro:arm_color />
+  </gazebo>  
+  <gazebo reference="vaccum_base">
+      <xacro:body_color />
+  </gazebo>
+  <gazebo reference="gripper">
+      <xacro:gripper_color />
+  </gazebo>
+  <gazebo reference="camera">
+      <xacro:wheel_color />
+  </gazebo>
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    <!-- Velocity Controllers -->
+
+    <joint name="base_connect_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="arm1_lower_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="arm2_lower_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="arm2_upper_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="vaccum_base_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="gripper_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="front_right_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="front_left_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="rear_left_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="rear_right_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+
+    <!-- Position Controller -->
+
+    <joint name="base_connect_joint">
+        <command_interface name="position">
+            <param name="min">-3.14</param>
+            <param name="max">3.14</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="arm1_lower_joint">
+        <command_interface name="position">
+            <param name="min">-3.14</param>
+            <param name="max">3.14</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="arm2_lower_joint">
+        <command_interface name="position">
+            <param name="min">-3.14</param>
+            <param name="max">3.14</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="arm2_upper_joint">
+        <command_interface name="position">
+            <param name="min">-3.14</param>
+            <param name="max">3.14</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="vaccum_base_joint">
+        <command_interface name="position">
+            <param name="min">-3.14</param>
+            <param name="max">3.14</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="gripper_joint">
+        <command_interface name="position">
+            <param name="min">-3.14</param>
+            <param name="max">3.14</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+  </ros2_control>
+
+  <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+          <parameters>$(find hand_e)/config/control.yaml</parameters>
+      </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name='vacuum_gripper' filename='libgazebo_ros_vacuum_gripper.so'>
+      <ros>
+        <namespace>/hand_e/gripper</namespace>
+        <remapping>switch:=hand_e_switch</remapping>
+        <remapping>grasping:=hand_e_grasping</remapping>
+      </ros>
+      <link_name>gripper</link_name>
+      <max_distance>0.5</max_distance>
+      <fixed>ground_plane</fixed>
+      <fixed>wall</fixed>
+      <fixed>Ground_Pallete</fixed>
+      <maxForce>1000.0</maxForce>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name='vacuum_gripper1' filename='libgazebo_ros_vacuum_gripper.so'>
+      <ros>
+        <namespace>/hand_e/gripper</namespace>
+        <remapping>switch:=hand_e_switch1</remapping>
+        <remapping>grasping:=hand_e_grasping1</remapping>
+      </ros>
+      <link_name>camera</link_name>
+      <max_distance>0.5</max_distance>
+      <fixed>ground_plane</fixed>
+      <fixed>wall</fixed>
+      <fixed>Ground_Pallete</fixed>
+      <maxForce>1000.0</maxForce>
+    </plugin>
+  </gazebo>
+<!-- Differentiation Drive Controllers -->
+  <!-- <gazebo>
+     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+     <robotNamespace />
+     <alwaysOn>true</alwaysOn>
+     <updateRate>50</updateRate>
+     <legacyMode>true</legacyMode>
+     <left_joint>rear_left_joint</left_joint>
+     <right_joint>rear_right_joint</right_joint>
+     <wheel_separation>0.762</wheel_separation>
+     <wheel_diameter>0.18</wheel_diameter>
+     <torque>200</torque>
+     <commandTopic>cmd_vel</commandTopic>
+     <odometryTopic>odom</odometryTopic>
+     <odometryFrame>rear_left</odometryFrame>
+     <robotBaseFrame>base_link</robotBaseFrame>
+     <publishWheelTF>false</publishWheelTF>
+     <publishWheelJointState>false</publishWheelJointState>
+     <rosDebugLevel>na</rosDebugLevel>
+     <wheelAcceleration>10</wheelAcceleration>
+     <wheelTorque>200</wheelTorque>
+     <odometrySource>world</odometrySource>
+     <publishTf>1</publishTf>
+  </plugin>
+  </gazebo>
+
+  <gazebo>
+     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+     <robotNamespace />
+     <alwaysOn>true</alwaysOn>
+     <updateRate>50</updateRate>
+     <legacyMode>true</legacyMode>
+     <left_joint>front_left_joint</left_joint>
+     <right_joint>front_right_joint</right_joint>
+     <wheel_separation>0.762</wheel_separation>
+     <wheel_diameter>0.18</wheel_diameter>
+     <torque>200</torque>
+     <commandTopic>cmd_vel</commandTopic>
+     <odometryTopic>odom</odometryTopic>
+     <odometryFrame>rear_left</odometryFrame>
+     <robotBaseFrame>base_link</robotBaseFrame>
+     <publishWheelTF>false</publishWheelTF>
+     <publishWheelJointState>false</publishWheelJointState>
+     <rosDebugLevel>na</rosDebugLevel>
+     <wheelAcceleration>10</wheelAcceleration>
+     <wheelTorque>200</wheelTorque>
+     <odometrySource>world</odometrySource>
+     <publishTf>1</publishTf>
+  </plugin>
+  </gazebo> -->
+
+  <gazebo>
+    <plugin filename="libodometry_plugin.so" name="odometry_plugin">
+      Name of the link for which the odometry is required
+      <frame>front_left</frame>
+      Any arbitray name for the world frame
+      <world_frame>fixed_world</world_frame>
+    </plugin>
+  </gazebo>
+</robot>
