@@ -4,7 +4,7 @@ A four wheeled Robot with differential drive system with manipulator arm on its 
 
 ## Screenshots  
 <p align="center"
-![Hand-E](https://github.com/Datta-Lohith/Hand-E/assets/126642779/3918f6ba-6288-4b4e-a960-d4c347a840b5)
+<img src="https://github.com/Datta-Lohith/Hand-E/assets/126642779/3918f6ba-6288-4b4e-a960-d4c347a840b5" alt="Hand-E Robot"/>
 </p>
 ## Contents of the zip file
 
