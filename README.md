@@ -18,14 +18,14 @@ A four wheeled Robot with differential drive system with manipulator arm on its 
     - debug.launch.py
     - display.launch.py
     - gazebo.launch.py
-    - spawn_robot_ros2.launch.py
+    - [spawn_robot_ros2.launch.py](hand_e/launch/spawn_robot_ros2.launch.py)
     - robot_description_publisher.py
   - meshes
   - rviz
   - src
     - [get_hammer.py](hand_e/src/get_hammer.py)
-    - hand_e_teleop.py
-    - manipulator_teleop.py
+    - [hand_e_teleop.py](hand_e/src/hand_e_teleop.py)
+    - [manipulator_teleop.py](hand_e/src/manipulator_teleop.py)
     - move_hand_e.py
   - urdf
   - worlds
